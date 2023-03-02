@@ -39,4 +39,13 @@ class ShopController extends Controller
         return redirect('/shops')->with('success', 'created successfully');
     }
 
+
+    public function delete($id)
+    {
+        $shop = Shop::findOrFail($id);
+        $shop->delete();
+    
+        return redirect()->route('shops.index')->with('success','deleted successfully');
+    }
+    
 }

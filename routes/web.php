@@ -19,7 +19,12 @@ Route::get('/', function () {
 });
 
 Route::prefix('shops')->group(function () {
-    Route::get('apishop', [ShopController::class, 'apishop']);
+    Route::get('/', [ShopController::class, 'index'])->name('shops.index');
+    Route::get('/createview', [ShopController::class, 'create'])->name('shops.create');
+    Route::post('/create', [ShopController::class, 'store'])->name('shops.store');
+    Route::get('/delete/{id}', [ShopController::class, 'delete'])->name('shops.delete');
 });
 
 Route::resource('shops', ShopController::class);
+
+// 
