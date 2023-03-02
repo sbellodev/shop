@@ -11,6 +11,10 @@ class Shop extends Model
 
     protected $table = 'tiendas';
 
+    protected $fillable = [
+        'nombre',
+    ];
+    
     public function products()
     {
         return $this->hasMany(Product::class);
