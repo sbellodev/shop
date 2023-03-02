@@ -21,5 +21,22 @@ class ShopController extends Controller
         return view('shop', ['shops' => $allShops]);
     }
 
+    public function create()
+    {
+        return view('shops.create');
+    }
+    
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+        ]);
+    
+        $shop = new Shop;
+        $shop->nombre = $validatedData['nombre'];
+        $shop->save();
+    
+        return redirect('/shops')->with('success', 'created successfully');
+    }
 
 }

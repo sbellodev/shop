@@ -10,6 +10,7 @@ class Shop extends Model
     use HasFactory;
 
     protected $table = 'tiendas';
+    public $timestamps = false;
 
     protected $fillable = [
         'nombre',
