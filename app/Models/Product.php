@@ -9,10 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table = 'productos';
+    protected $table = 'products';
 
     protected $fillable = [
         'nombre',
+        'quantity'
     ];
     
     public function store()
