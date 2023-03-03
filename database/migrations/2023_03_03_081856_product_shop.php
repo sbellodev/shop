@@ -9,19 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('product_shop', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id')->constrained();
+            $table->foreignId('id')->constrained();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('shops');
+        Schema::dropIfExists('product_shop');
     }
 };
